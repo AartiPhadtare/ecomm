@@ -1,0 +1,26 @@
+<div class="container w-auto mx-auto py-10">
+<div class="grid grid-cols-4 gap-4">
+
+    @for (item of productService.products; track $index) {
+        <div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg px-6 py-8 ring shadow-xl ring-gray-900/5">
+                    <div>
+                        <span class="inline-flex items-center justify-center rounded-md w-full h-96 p-2 ">
+                            <img [src]="item.imageUrl" alt=""> 
+                        </span>
+                    </div>
+                    <h3 class="text-gray-900 dark:text-white mt-5 text-base font-medium tracking-tight ">{{item.name}}</h3>
+                    <p>{{item.description}}
+                    </p>
+                    <span class="mt-4 font-semibold block">Price: {{item.price}}</span>
+                    <button class="bg-black p-3 text-white rounded-md mt-4 cursor-pointer" (click)="productService.addToCart()">Add To Cart</button>
+                </div>
+            </div>
+    }
+   
+    
+    
+   
+</div>
+
+</div>
