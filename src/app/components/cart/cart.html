@@ -1,0 +1,21 @@
+{{cartItems | json}}
+<div class="container w-auto mx-auto py-10">
+  <div class="grid grid-cols-4 gap-4">
+    @for (item of cartService.getCartItems() | async; track item.id; let i = $index) {
+    <div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg px-6 py-8 ring shadow-xl ring-gray-900/5">
+        <div>
+          <span class="inline-flex items-center justify-center rounded-md w-full h-96 p-2 ">
+            <img [src]="item.imageUrl" alt="">
+          </span>
+        </div>
+        <h3 class="text-gray-900 dark:text-white mt-5 text-base font-medium tracking-tight ">{{item.name}}</h3>
+        <p>{{item.description}}
+        </p>
+        <span class="mt-4 font-semibold block">Price: {{item.price}}</span>
+      </div>
+      <button (click)="cartService.removeItem(i)" class="bg-red-600 p-2">Remove Item</button>
+    </div>
+    }
+  </div>
+</div>

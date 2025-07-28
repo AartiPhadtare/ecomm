@@ -1,13 +1,17 @@
-import { Component, inject } from "@angular/core";
-import { ProductService } from "../../shared/product.service";
+import { Component, inject } from '@angular/core';
+import { ProductService } from '../../shared/product.service';
+import { Subject } from 'rxjs';
+import { CartService } from '../../shared/cart.service';
 
 @Component({
-    selector:'app-productlisting',
-    templateUrl:'./productListing.html',
+  selector: 'app-productlisting',
+  templateUrl: './productListing.html',
 })
 export class ProductListing {
+  productService = inject(ProductService);
+  cartService = inject(CartService);
 
-
-productService = inject(ProductService);
-
+  addToCart(product: any) {
+    this.cartService.addToCart(product)
+  }
 }
