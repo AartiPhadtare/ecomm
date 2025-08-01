@@ -17,6 +17,10 @@ export class TodosApi {
     return this.http.delete(`http://localhost:3000/todos/${id}`);
   }
 
+  postTodo(body: any){
+    return this.http.post('http://localhost:3000/todos/', body);
+  }
+
   //post ya put karte hoo
 
   // { email: "", password:"" } {name: "", phone: "", address: "", mail:""}
